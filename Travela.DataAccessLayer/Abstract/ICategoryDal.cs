@@ -2,7 +2,7 @@
 
 namespace Travela.DataAccessLayer.Abstract;
 
-public interface ICategoryDal:IGenericDal<Category>
+public interface ICategoryDal : IGenericDal<Category>
 {
-    
+    public int GetCategoryCount();
 }

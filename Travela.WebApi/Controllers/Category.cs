@@ -21,5 +21,39 @@ namespace Travela.WebApi.Controllers
             var values = _categoryService.TGetListAll();
             return Ok(values);
         }
+
+        [HttpPost]
+        public IActionResult CreateCategory(Travela.EntityLayer.Concrete.Category p)
+        {
+            _categoryService.TInsert(p);
+            return Ok("Kategori Ekleme İşlemi Başarıyla Tamamlandı!");
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteCategory(int id)
+        {
+            _categoryService.TDelete(id);
+            return Ok("Kategori Silme İşlemi Başarıyla Tamamlandı!");
+        }
+
+        [HttpGet("GetCategoryById/{id}")]
+        public IActionResult GetCategory(int id)
+        {
+            var value = _categoryService.TGetByID(id);
+            return Ok(value);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateCategory(Travela.EntityLayer.Concrete.Category p)
+        {
+            _categoryService.TUpdate(p);
+            return Ok("Kategori Güncelleme İşlemi Başarıyla Tamamlandı!");
+        }
+
+        [HttpGet("CategoryCount")]
+        public IActionResult CategoryCount()
+        {
+            return Ok(_categoryService.TGetCategoryCount());
+        }
     }
 }

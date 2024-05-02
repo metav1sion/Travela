@@ -13,6 +13,9 @@ builder.Services.AddDbContext<TravelaContext>();
 builder.Services.AddScoped<ICategoryDal,EfCategoryDal>();
 builder.Services.AddScoped<ICategoryService,CategoryManager>();
 
+builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
+builder.Services.AddScoped<IDestinationService, DestinationManager>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
